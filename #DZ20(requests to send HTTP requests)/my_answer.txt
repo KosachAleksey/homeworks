@@ -1,0 +1,183 @@
+Лог работы программы:
+
+Успешно получены данные с https://jsonplaceholder.typicode.com/posts, количество записей: 100
+
+Заголовки всех постов:
+- sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+- qui est esse
+- ea molestias quasi exercitationem repellat qui ipsa sit aut
+- eum et est occaecati
+- nesciunt quas odio
+- dolorem eum magni eos aperiam quia
+- magnam facilis autem
+- dolorem dolore est ipsam
+- nesciunt iure omnis dolorem tempora et accusantium
+- optio molestias id quia eum
+- et ea vero quia laudantium autem
+- in quibusdam tempore odit est dolorem
+- dolorum ut in voluptas mollitia et saepe quo animi
+- voluptatem eligendi optio
+- eveniet quod temporibus
+- sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio
+- fugit voluptas sed molestias voluptatem provident
+- voluptate et itaque vero tempora molestiae
+- adipisci placeat illum aut reiciendis qui
+- doloribus ad provident suscipit at
+- asperiores ea ipsam voluptatibus modi minima quia sint
+- dolor sint quo a velit explicabo quia nam
+- maxime id vitae nihil numquam
+- autem hic labore sunt dolores incidunt
+- rem alias distinctio quo quis
+- est et quae odit qui non
+- quasi id et eos tenetur aut quo autem
+- delectus ullam et corporis nulla voluptas sequi
+- iusto eius quod necessitatibus culpa ea
+- a quo magni similique perferendis
+- ullam ut quidem id aut vel consequuntur
+- doloremque illum aliquid sunt
+- qui explicabo molestiae dolorem
+- magnam ut rerum iure
+- id nihil consequatur molestias animi provident
+- fuga nam accusamus voluptas reiciendis itaque
+- provident vel ut sit ratione est
+- explicabo et eos deleniti nostrum ab id repellendus
+- eos dolorem iste accusantium est eaque quam
+- enim quo cumque
+- non est facere
+- commodi ullam sint et excepturi error explicabo praesentium voluptas
+- eligendi iste nostrum consequuntur adipisci praesentium sit beatae perferendis
+- optio dolor molestias sit
+- ut numquam possimus omnis eius suscipit laudantium iure
+- aut quo modi neque nostrum ducimus
+- quibusdam cumque rem aut deserunt
+- ut voluptatem illum ea doloribus itaque eos
+- laborum non sunt aut ut assumenda perspiciatis voluptas
+- repellendus qui recusandae incidunt voluptates tenetur qui omnis exercitationem
+- soluta aliquam aperiam consequatur illo quis voluptas
+- qui enim et consequuntur quia animi quis voluptate quibusdam
+- ut quo aut ducimus alias
+- sit asperiores ipsam eveniet odio non quia
+- sit vel voluptatem et non libero
+- qui et at rerum necessitatibus
+- sed ab est est
+- voluptatum itaque dolores nisi et quasi
+- qui commodi dolor at maiores et quis id accusantium
+- consequatur placeat omnis quisquam quia reprehenderit fugit veritatis facere
+- voluptatem doloribus consectetur est ut ducimus
+- beatae enim quia vel
+- voluptas blanditiis repellendus animi ducimus error sapiente et suscipit
+- et fugit quas eum in in aperiam quod
+- consequatur id enim sunt et et
+- repudiandae ea animi iusto
+- aliquid eos sed fuga est maxime repellendus
+- odio quis facere architecto reiciendis optio
+- fugiat quod pariatur odit minima
+- voluptatem laborum magni
+- et iusto veniam et illum aut fuga
+- sint hic doloribus consequatur eos non id
+- consequuntur deleniti eos quia temporibus ab aliquid at
+- enim unde ratione doloribus quas enim ut sit sapiente
+- dignissimos eum dolor ut enim et delectus in
+- doloremque officiis ad et non perferendis
+- necessitatibus quasi exercitationem odio
+- quam voluptatibus rerum veritatis
+- pariatur consequatur quia magnam autem omnis non amet
+- labore in ex et explicabo corporis aut quas
+- tempora rem veritatis voluptas quo dolores vero
+- laudantium voluptate suscipit sunt enim enim
+- odit et voluptates doloribus alias odio et
+- optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut
+- dolore veritatis porro provident adipisci blanditiis et sunt
+- placeat quia et porro iste
+- nostrum quis quasi placeat
+- sapiente omnis fugit eos
+- sint soluta et vel magnam aut ut sed qui
+- ad iusto omnis odit dolor voluptatibus
+- aut amet sed
+- ratione ex tenetur perferendis
+- beatae soluta recusandae
+- qui qui voluptates illo iste minima
+- id minus libero illum nam ad officiis
+- quaerat velit veniam amet cupiditate aut numquam ut sequi
+- quas fugiat ut perspiciatis vero provident
+- laboriosam dolor voluptates
+- temporibus sit alias delectus eligendi possimus magni
+- at nam consequatur ea labore ea harum
+Успешно получены данные с https://jsonplaceholder.typicode.com/todos, количество записей: 200
+
+Первые 10 задач:
+ID: 1 | delectus aut autem | Не выполнено
+ID: 2 | quis ut nam facilis et officia qui | Не выполнено
+ID: 3 | fugiat veniam minus | Не выполнено
+ID: 4 | et porro tempora | Выполнено
+ID: 5 | laboriosam mollitia et enim quasi adipisci quia provident illum | Не выполнено
+ID: 6 | qui ullam ratione quibusdam voluptatem quia omnis | Не выполнено
+ID: 7 | illo expedita consequatur quia in | Не выполнено
+ID: 8 | quo adipisci enim quam ut ab | Выполнено
+ID: 9 | molestiae perspiciatis ipsa | Не выполнено
+ID: 10 | illo est ratione doloremque quia maiores aut | Выполнено
+Успешно получены данные с https://jsonplaceholder.typicode.com/comments, количество записей: 500
+
+Первые 10 комментариев:
+ID: 1 | Пост 1 | id labore ex et quam laborum:
+laudantium enim quasi est quidem magnam voluptate ipsam eos
+tempora quo necessitatibus
+dolor quam autem quasi
+reiciendis et nam sapiente accusantium
+
+ID: 2 | Пост 1 | quo vero reiciendis velit similique earum:
+est natus enim nihil est dolore omnis voluptatem numquam
+et omnis occaecati quod ullam at
+voluptatem error expedita pariatur
+nihil sint nostrum voluptatem reiciendis et
+
+ID: 3 | Пост 1 | odio adipisci rerum aut animi:
+quia molestiae reprehenderit quasi aspernatur
+aut expedita occaecati aliquam eveniet laudantium
+omnis quibusdam delectus saepe quia accusamus maiores nam est
+cum et ducimus et vero voluptates excepturi deleniti ratione
+
+ID: 4 | Пост 1 | alias odio sit:
+non et atque
+occaecati deserunt quas accusantium unde odit nobis qui voluptatem
+quia voluptas consequuntur itaque dolor
+et qui rerum deleniti ut occaecati
+
+ID: 5 | Пост 1 | vero eaque aliquid doloribus et culpa:
+harum non quasi et ratione
+tempore iure ex voluptates in ratione
+harum architecto fugit inventore cupiditate
+voluptates magni quo et
+
+ID: 6 | Пост 2 | et fugit eligendi deleniti quidem qui sint nihil autem:
+doloribus at sed quis culpa deserunt consectetur qui praesentium
+accusamus fugiat dicta
+voluptatem rerum ut voluptate autem
+voluptatem repellendus aspernatur dolorem in
+
+ID: 7 | Пост 2 | repellat consequatur praesentium vel minus molestias voluptatum:
+maiores sed dolores similique labore et inventore et
+quasi temporibus esse sunt id et
+eos voluptatem aliquam
+aliquid ratione corporis molestiae mollitia quia et magnam dolor
+
+ID: 8 | Пост 2 | et omnis dolorem:
+ut voluptatem corrupti velit
+ad voluptatem maiores
+et nisi velit vero accusamus maiores
+voluptates quia aliquid ullam eaque
+
+ID: 9 | Пост 2 | provident id voluptas:
+sapiente assumenda molestiae atque
+adipisci laborum distinctio aperiam et ab ut omnis
+et occaecati aspernatur odit sit rem expedita
+quas enim ipsam minus
+
+ID: 10 | Пост 2 | eaque et deleniti atque tenetur ut quo ut:
+voluptate iusto quis nobis reprehenderit ipsum amet nulla
+quia quas dolores velit et non
+aut quia necessitatibus
+nostrum quaerat nulla et accusamus nisi facilis
+
+
+Привет Борис! Все данные записаны в my_answer.txt  Это супер!!!
