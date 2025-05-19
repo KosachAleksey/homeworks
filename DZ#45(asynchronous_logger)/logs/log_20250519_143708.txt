@@ -1,0 +1,28 @@
+[2025-05-19 14:37:08.613548] [INFO] Starting application
+[2025-05-19 14:37:08.622011] [INFO] Task added: Task-1 (Queue size: 1)
+[2025-05-19 14:37:08.623106] [INFO] Task added: Task-2 (Queue size: 2)
+[2025-05-19 14:37:08.624186] [INFO] Task added: Task-3 (Queue size: 3)
+[2025-05-19 14:37:08.625187] [INFO] Task added: Task-4 (Queue size: 4)
+[2025-05-19 14:37:08.626223] [INFO] Task added: Task-5 (Queue size: 5)
+[2025-05-19 14:37:08.627364] [DEBUG] Processing task: Task-1
+[2025-05-19 14:37:09.634481] [INFO] Task completed: Task-1 (Remaining: 4)
+[2025-05-19 14:37:09.638680] [DEBUG] Processing task: Task-2
+[2025-05-19 14:37:10.631122] [INFO] Task added: Task-6 (Queue size: 4)
+[2025-05-19 14:37:10.635171] [INFO] Task added: Task-7 (Queue size: 5)
+[2025-05-19 14:37:10.638864] [INFO] Task added: Task-8 (Queue size: 6)
+[2025-05-19 14:37:10.647431] [INFO] Task completed: Task-2 (Remaining: 6)
+[2025-05-19 14:37:10.651064] [DEBUG] Processing task: Task-3
+[2025-05-19 14:37:11.663543] [INFO] Task completed: Task-3 (Remaining: 5)
+[2025-05-19 14:37:11.664943] [DEBUG] Processing task: Task-4
+[2025-05-19 14:37:12.677426] [INFO] Task completed: Task-4 (Remaining: 4)
+[2025-05-19 14:37:12.679906] [DEBUG] Processing task: Task-5
+[2025-05-19 14:37:13.683516] [INFO] Task completed: Task-5 (Remaining: 3)
+[2025-05-19 14:37:13.687132] [DEBUG] Processing task: Task-6
+[2025-05-19 14:37:14.694605] [INFO] Task completed: Task-6 (Remaining: 2)
+[2025-05-19 14:37:14.698369] [DEBUG] Processing task: Task-7
+[2025-05-19 14:37:15.704821] [INFO] Task completed: Task-7 (Remaining: 1)
+[2025-05-19 14:37:15.708675] [DEBUG] Processing task: Task-8
+[2025-05-19 14:37:16.725607] [INFO] Task completed: Task-8 (Remaining: 0)
+[2025-05-19 14:37:16.729753] [INFO] Queue processing stopped
+[2025-05-19 14:37:16.730089] [INFO] Shutting down the task queue
+[2025-05-19 14:37:16.737609] [INFO] Application finished
