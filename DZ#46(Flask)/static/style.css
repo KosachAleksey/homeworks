@@ -1,0 +1,240 @@
+body {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0e6d2;
+    margin: 0;
+    padding: 20px;
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff9e6;
+    padding: 30px;
+    border-radius: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 8px double #8b4513;
+}
+
+h1 {
+    color: #8b4513;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2.2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 3px groove #8b4513;
+    border-radius: 0;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fffdf6;
+}
+
+legend {
+    padding: 0 15px;
+    color: #8b4513;
+    font-weight: bold;
+    font-size: 1.1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    color: #5a4a3a;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+    padding: 12px;
+    border: 2px solid #8b4513;
+    border-radius: 0;
+    font-size: 16px;
+    transition: all 0.3s;
+    background-color: #fffdf6;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="number"]:hover,
+select:hover {
+    border-color: #a0522d;
+    background-color: #fff9e6;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #a0522d;
+    outline: none;
+    box-shadow: 0 0 8px rgba(139, 69, 19, 0.4);
+    background-color: #fff9e6;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.radio-group span,
+.checkbox-group span {
+    margin-right: 15px;
+    font-weight: bold;
+    color: #5a4a3a;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    padding-left: 25px;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-group label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #8b4513;
+    border-radius: 50%;
+    background-color: #fffdf6;
+}
+
+.radio-group input[type="radio"]:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 7px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #8b4513;
+}
+
+.checkbox-group label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #8b4513;
+    background-color: #fffdf6;
+}
+
+.checkbox-group input[type="checkbox"]:checked + label:after {
+    content: "✓";
+    position: absolute;
+    left: 3px;
+    top: -2px;
+    color: #8b4513;
+    font-weight: bold;
+}
+
+button {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    font-size: 18px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 10px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 2px solid #5a4a3a;
+}
+
+button:hover {
+    background-color: #a0522d;
+    letter-spacing: 2px;
+}
+
+.results-table {
+    margin: 30px 0;
+    background-color: #fffdf6;
+    padding: 20px;
+    border: 3px groove #8b4513;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #8b4513;
+    font-family: 'Roboto', sans-serif;
+}
+
+th {
+    background-color: #8b4513;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+tr:nth-child(even) {
+    background-color: #fff9e6;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: #8b4513;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-weight: bold;
+    font-size: 1.1em;
+    border: 2px solid #8b4513;
+    padding: 8px 20px;
+    background-color: #fffdf6;
+}
+
+.back-link:hover {
+    color: #fffdf6;
+    background-color: #8b4513;
+    text-decoration: none;
+    letter-spacing: 1px;
+}

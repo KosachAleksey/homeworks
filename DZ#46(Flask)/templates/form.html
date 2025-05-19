@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета пользователя</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Анкета пользователя</h1>
+        <form action="/submit" method="GET">
+            <fieldset>
+                <legend>Основная информация</legend>
+                
+                <div class="form-group">
+                    <label for="first_name">Имя:</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="last_name">Фамилия:</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Возраст:</label>
+                    <input type="number" id="age" name="age" min="1" max="120" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Дополнительная информация</legend>
+                
+                <div class="form-group radio-group">
+                    <span>Пол:</span>
+                    <label><input type="radio" name="gender" value="Мужской" required> Мужской</label>
+                    <label><input type="radio" name="gender" value="Женский"> Женский</label>
+                    <label><input type="radio" name="gender" value="Другой"> Другой</label>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <span>Увлечения:</span>
+                    <label><input type="checkbox" name="hobbies" value="Спорт"> Спорт</label>
+                    <label><input type="checkbox" name="hobbies" value="Музыка"> Музыка</label>
+                    <label><input type="checkbox" name="hobbies" value="Кино"> Кино</label>
+                    <label><input type="checkbox" name="hobbies" value="Путешествия"> Путешествия</label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">Город:</label>
+                    <select id="city" name="city" required>
+                        <option value="" disabled selected>Выберите город</option>
+                        <option value="Москва">Москва</option>
+                        <option value="Санкт-Петербург">Санкт-Петербург</option>
+                        <option value="Новосибирск">Новосибирск</option>
+                        <option value="Екатеринбург">Екатеринбург</option>
+                        <option value="Сочи">Сочи</option>
+                    </select>
+                </div>
+            </fieldset>
+            
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>

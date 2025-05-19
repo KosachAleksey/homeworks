@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты анкеты</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Спасибо за заполнение анкеты!</h1>
+        <div class="results-table">
+            <table>
+                <tr>
+                    <th>Поле</th>
+                    <th>Значение</th>
+                </tr>
+                <tr>
+                    <td>Имя</td>
+                    <td>{{ data.first_name }}</td>
+                </tr>
+                <tr>
+                    <td>Фамилия</td>
+                    <td>{{ data.last_name }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ data.email }}</td>
+                </tr>
+                <tr>
+                    <td>Возраст</td>
+                    <td>{{ data.age }}</td>
+                </tr>
+                <tr>
+                    <td>Пол</td>
+                    <td>{{ data.gender }}</td>
+                </tr>
+                <tr>
+                    <td>Увлечения</td>
+                    <td>{{ ', '.join(data.hobbies) if data.hobbies else 'Не указано' }}</td>
+                </tr>
+                <tr>
+                    <td>Город</td>
+                    <td>{{ data.city }}</td>
+                </tr>
+            </table>
+        </div>
+        <a href="/" class="back-link">Вернуться к форме</a>
+    </div>
+</body>
+</html>
