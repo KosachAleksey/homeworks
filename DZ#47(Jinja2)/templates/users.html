@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Пользователи и товары{% endblock %}
+
+{% block content %}
+    <h1>Список пользователей</h1>
+    
+    <table class="users-table">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Роль</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.name }}</td>
+                    <td class="role-{{ user.role }}">{{ user.role }}</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h1>Список товаров</h1>
+    
+    <ul class="products-list">
+        {% for product in products %}
+            <li>
+                {{ product.name }} - {{ product.price }} руб.
+                {% if product.in_stock %}
+                    <span class="in-stock">✓ В наличии</span>
+                {% else %}
+                    <span class="out-of-stock">✗ Нет в наличии</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
