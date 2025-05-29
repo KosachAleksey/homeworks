@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пользователей</title>
+</head>
+<body>
+    <h1>Зарегистрированные пользователи:</h1>
+    {% for row in users %}
+        <div>
+            Имя: {{ row[1] }}<br>
+            Email: {{ row[2] }}<br>
+            Возраст: {{ row[3] }}<br>
+            Зарегистрирован: {{ row[4] }}
+        </div>
+        <hr>
+    {% else %}
+        <p>Пока нет зарегистрированных пользователей.</p>
+    {% endfor %}
+</body>
+</html>
