@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задания Flask</title>
+</head>
+<body>
+    <h2>Задание 1: Вход</h2>
+    <form method="POST">
+        Логин: <input type="text" name="login">
+        Пароль: <input type="password" name="password">
+        <button type="submit">Войти</button>
+    </form>
+    <p>{{ result1 }}</p>
+
+    <hr>
+
+    <h2>Задание 2: Вычисления</h2>
+    <form method="POST">
+        Число 1: <input type="text" name="num1">
+        Число 2: <input type="text" name="num2">
+        Число 3: <input type="text" name="num3"><br><br>
+        <label><input type="radio" name="operation" value="min" checked>Минимум</label>
+        <label><input type="radio" name="operation" value="max">Максимум</label>
+        <label><input type="radio" name="operation" value="avg">Среднее</label>
+        <button type="submit">Рассчитать</button>
+    </form>
+    <p>{{ result2 }}</p>
+
+    <hr>
+
+    <h2>Задание 3: Регистрация</h2>
+    <form method="POST">
+        Имя: <input type="text" name="firstname"><br>
+        Фамилия: <input type="text" name="lastname"><br>
+        Возраст: <input type="number" name="age"><br>
+        Email: <input type="email" name="email"><br>
+        Пол:
+        <select name="gender">
+            <option>Мужской</option>
+            <option>Женский</option>
+        </select><br>
+        Адрес: <input type="text" name="address"><br>
+        Логин: <input type="text" name="login_reg"><br>
+        Пароль: <input type="password" name="password_reg"><br>
+        <label><input type="checkbox" name="subscribe"> Хотите ли подписаться на новости?</label><br>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+    <p>{{ result3 | safe }}</p>
+
+    <hr>
+
+    <h2>Задание 4: День программиста</h2>
+    <form method="POST">
+        Введите год: <input type="text" name="year">
+        <button type="submit">Узнать дату</button>
+    </form>
+    <p>{{ result4 }}</p>
+
+</body>
+</html>
