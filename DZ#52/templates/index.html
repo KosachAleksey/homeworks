@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-4">Добро пожаловать в наше приложение</h1>
+    <p class="lead mb-5">Изучайте Flask и Bootstrap с нашими ресурсами</p>
+    <a href="{{ url_for('form') }}" class="btn btn-light btn-lg px-4">
+      <i class="fas fa-paper-plane me-2"></i>Попробовать форму
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <h2 class="text-center mb-5">Документация и ресурсы</h2>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card card-docs h-100">
+        <div class="card-header text-center">
+          <i class="fas fa-paint-brush fa-3x mb-3"></i>
+          <h3>Bootstrap 5</h3>
+        </div>
+        <div class="card-body text-center">
+          <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" 
+             target="_blank" 
+             class="btn btn-custom mb-2">
+            Официальная документация
+          </a>
+          <a href="https://bootstrap-4.ru/docs/5.0/getting-started/introduction/" 
+             target="_blank" 
+             class="btn btn-outline-primary">
+            Руководство на русском
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card card-docs h-100">
+        <div class="card-header text-center">
+          <i class="fas fa-flask fa-3x mb-3"></i>
+          <h3>Flask</h3>
+        </div>
+        <div class="card-body text-center">
+          <a href="https://flask.palletsprojects.com/en/2.0.x/" 
+             target="_blank" 
+             class="btn btn-custom mb-2">
+            Официальная документация
+          </a>
+          <a href="https://flask-russian-docs.readthedocs.io/ru/latest/" 
+             target="_blank" 
+             class="btn btn-outline-primary">
+            Руководство на русском
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card card-docs h-100">
+        <div class="card-header text-center">
+          <i class="fas fa-cogs fa-3x mb-3"></i>
+          <h3>Flask-Bootstrap</h3>
+        </div>
+        <div class="card-body text-center">
+          <a href="https://pythonhosted.org/Flask-Bootstrap/" 
+             target="_blank" 
+             class="btn btn-custom">
+            Документация Flask-Bootstrap
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
