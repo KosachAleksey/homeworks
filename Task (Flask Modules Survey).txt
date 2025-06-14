@@ -1,0 +1,452 @@
+Опрос по модулям Flask
+
+Ответы на задание 
+
+Ответ на п. 1. Работа с формами (Flask-WTF)
+
+ Задача: регистрация с полями
+
+* Имя пользователя
+* Электронная почта
+* Пароль
+* Подтверждение пароля
+  **+ валидации полей**
+
+
+
+# `forms.py` — **Форма регистрации**
+
+from flask_wtf import FlaskForm  # Импорт базового класса формы из Flask-WTF
+from wtforms import StringField, PasswordField, SubmitField  # Импорт нужных полей формы
+from wtforms.validators import DataRequired, Email, EqualTo, Length  # Импорт валидаторов
+
+# Класс формы регистрации
+class RegistrationForm(FlaskForm):
+    username = StringField('Имя пользователя', validators=[
+        DataRequired(),         # Обязательное поле
+        Length(min=3, max=25)   # Ограничение длины
+    ])
+    
+    email = StringField('Электронная почта', validators=[
+        DataRequired(),         # Обязательное поле
+        Email()                 # Валидатор электронной почты
+    ])
+    
+    password = PasswordField('Пароль', validators=[
+        DataRequired(),         # Обязательное поле
+        Length(min=6)           # Минимум 6 символов
+    ])
+    
+    confirm_password = PasswordField('Подтверждение пароля', validators=[
+        DataRequired(),
+        EqualTo('password')     # Значение должно совпадать с полем password
+    ])
+    
+    submit = SubmitField('Зарегистрироваться')  # Кнопка отправки
+
+
+
+# `templates/register.html` — **HTML форма с выводом ошибок**
+
+
+<form method="POST">  <!-- Форма отправляется методом POST -->
+    {{ form.hidden_tag() }}  <!-- Токен CSRF безопасности -->
+    
+    <p>
+        {{ form.username.label }}<br>
+        {{ form.username() }}<br>
+        {% for error in form.username.errors %}  <!-- Вывод ошибок поля username -->
+            <span style="color:red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+    
+    <p>
+        {{ form.email.label }}<br>
+        {{ form.email() }}<br>
+        {% for error in form.email.errors %}
+            <span style="color:red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+    
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password() }}<br>
+        {% for error in form.password.errors %}
+            <span style="color:red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+    
+    <p>
+        {{ form.confirm_password.label }}<br>
+        {{ form.confirm_password() }}<br>
+        {% for error in form.confirm_password.errors %}
+            <span style="color:red;">{{ error }}</span>
+        {% endfor %}
+    </p>
+    
+    <p>{{ form.submit() }}</p>  <!-- Кнопка -->
+</form>
+
+
+
+# `app.py` — **Обработка регистрации и сохранение в базу**
+
+
+from flask import Flask, render_template, redirect, url_for, flash
+from forms import RegistrationForm
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.secret_key = 'secret'  # Ключ для CSRF и сессий
+
+# Настройка базы данных SQLite
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+db = SQLAlchemy(app)  # Объект базы
+
+# Модель пользователя
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(25), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(60), nullable=False)
+
+# Роут регистрации
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():  # Проверка валидности формы
+        user = User(
+            username=form.username.data,
+            email=form.email.data,
+            password=form.password.data
+        )
+        db.session.add(user)     # Добавление в БД
+        db.session.commit()
+        flash('Вы успешно зарегистрировались!', 'success')  # Сообщение
+        return redirect(url_for('login'))  # Переход на логин
+
+
+# Ответ на п.2. Авторизация (Flask-Login)
+
+# `models.py` — **Модель с UserMixin**
+
+
+from flask_login import UserMixin
+from app import db
+
+# UserMixin добавляет методы: is_authenticated, get_id и др.
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(25), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(60), nullable=False)
+
+
+
+
+#  `forms.py` — **Форма входа**
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    submit = SubmitField('Войти')
+
+
+
+
+# `app.py` — **Настройка Flask-Login и логика входа/выхода**
+
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from forms import LoginForm
+
+login_manager = LoginManager()
+login_manager.init_app(app)  # Подключаем к приложению
+login_manager.login_view = 'login'  # Куда перенаправлять неавторизованных
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))  # Поиск юзера по id
+
+# Страница входа
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and user.password == form.password.data:  # Проверка пароля
+            login_user(user)  # Вход
+            return redirect(url_for('dashboard'))
+        flash('Неверный email или пароль', 'danger')
+    return render_template('login.html', form=form)
+
+# Страница выхода
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()  # Выход и удаление из session
+    return redirect(url_for('login'))
+
+# Страница, доступная только после входа
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return f'Добро пожаловать, {current_user.username}!'
+
+
+
+
+# Ответ на п. 3. Хранение данных (Flask Session / Flask-Login)
+
+> Flask-Login сам сохраняет ID в `session`. Ниже — как получить и очистить.
+
+
+
+# Как сохранить ID:
+
+
+login_user(user)  # Сохраняет user_id в session автоматически
+
+
+
+
+# Как проверить, вошёл ли пользователь:
+
+if current_user.is_authenticated:
+    print(current_user.username)
+else:
+
+
+
+
+# Как очистить данные пользователя:
+
+logout_user()  # Удаляет пользователя из session
+
+
+
+
+# Структура проекта
+
+Flask-apps/
+├── app.py
+├── forms.py
+├── models.py
+├── templates/
+│   ├── register.html
+│   ├── login.html
+│   └── dashboard.html
+├── users.db
+
+
+# Ответ на п.4. Работа с базой данных (Flask-SQLAlchemy)**
+
+# Задача: создать модель `BlogPost` с полями:
+
+* `id`: уникальный номер
+* `title`: заголовок
+* `content`: текст
+* `date_created`: дата создания
+* `author_id`: связь с таблицей пользователей
+
+
+
+# `models.py` — модель поста
+
+from app import db
+from datetime import datetime
+
+# Модель для записей блога
+class BlogPost(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  # Уникальный ID
+    title = db.Column(db.String(100), nullable=False)  # Заголовок, обязателен
+    content = db.Column(db.Text, nullable=False)  # Основной текст, обязателен
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)  # Дата создания
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  
+    # Внешний ключ на id пользователя из таблицы user
+
+# Модель пользователя, если ее ещё нет
+from flask_login import UserMixin
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(25), unique=True, nullable=False)
+    posts = db.relationship('BlogPost', backref='author', lazy=True)
+    # Связь "один-ко-многим" — пользователь -> список постов
+
+
+
+
+#Автоматическое создание таблиц при первом запуске
+
+# `app.py` (внизу)
+
+
+with app.app_context():
+    db.create_all()  # Создает таблицы по моделям, если их нет
+
+
+
+
+# Операции с записями блога
+
+# Получить все записи пользователя
+
+
+user = User.query.filter_by(username='Ivan').first()  # Находим пользователя
+
+
+# Добавить запись
+
+new_post = BlogPost(title="Привет", content="Мой первый пост", author_id=user.id)
+db.session.add(new_post)   # Добавляем пост в сессию
+db.session.commit()        # Сохраняем в базу
+```
+
+# Изменить запись
+
+
+post = BlogPost.query.get(1)  # Получаем пост по ID
+post.title = "Обновлённый заголовок"
+db.session.commit()
+```
+
+# Удалить запись
+
+post = BlogPost.query.get(1)
+db.session.delete(post)
+db.session.commit()
+
+
+
+
+# Ответ на п. 5. Всплывающие сообщения (Flash)
+
+# `Flask.flash()` — это способ показать временное сообщение пользователю (например, «успешно сохранено»)
+
+
+
+# Как показать сообщение при обновлении профиля:
+
+from flask import flash, redirect, url_for
+
+@app.route('/edit_profile', methods=['POST'])
+def edit_profile():
+    # здесь логика обновления
+    flash('Профиль обновлен', 'success')  # Сообщение + категория 'success'
+    return redirect(url_for('profile'))
+
+
+
+
+# Как отобразить сообщения в HTML
+
+# `templates/base.html` (или любой шаблон)
+
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">  <!-- bootstrap style -->
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+```
+
+---
+
+# Почему сообщения показываются один раз?
+
+* `flash()` записывает данные во **временную сессию**.
+* После первого `get_flashed_messages()` они **удаляются автоматически**.
+* Это сделано специально, чтобы одно сообщение не появлялось повторно на каждой странице.
+
+
+
+# Ответ на п. 6. Основы Flask: Главная, Профиль, Шаблоны**
+
+
+
+# Главная страница и страница профиля
+
+📁 `app.py`
+
+
+from flask import Flask, render_template
+
+@app.route('/')
+def index():
+    return render_template('index.html')  # Главная страница
+
+@app.route('/user/<username>')
+def profile(username):
+    return render_template('profile.html', username=username)  # Передаем имя в шаблон
+
+
+
+
+# `templates/index.html`
+
+
+{% extends "base.html" %}
+{% block content %}
+  <h1>Добро пожаловать!</h1>
+  <p>Это главная страница сайта.</p>
+{% endblock %}
+
+
+
+
+# `templates/profile.html`
+
+{% extends "base.html" %}
+{% block content %}
+  <h1>Профиль пользователя {{ username }}</h1>
+  <p>Информация о пользователе будет здесь.</p>
+{% endblock %}
+```
+
+---
+
+# Общий шаблон (базовый макет)
+
+# `templates/base.html`
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+  <header class="bg-dark text-white p-3">
+    <div class="container">
+      <h1>Мой блог</h1>
+      <nav>
+        <a href="/">Главная</a> | 
+        <a href="/user/Иван">Профиль</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="bg-light text-center p-3 mt-4">
+    <p>© 2025 Мой блог</p>
+  </footer>
+
+</body>
+</html>
