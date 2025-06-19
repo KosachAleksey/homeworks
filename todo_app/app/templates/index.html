@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Добро пожаловать в приложение Todo</h1>
+    {% if not current_user.is_authenticated %}
+        <p>Please <a href="{{ url_for('auth.login') }}">логин</a> or <a href="{{ url_for('auth.register') }}">Зарегистрироваться</a> to manage your tasks.</p>
+    {% else %}
+        <p>Перейти к <a href="{{ url_for('main.tasks') }}">Задачи</a> для управления списком дел</p>
+    {% endif %}
+{% endblock %}

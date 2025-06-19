@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block content %}
+    <h1>Your Tasks</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=32) }}<br>
+            {% for error in form.title.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(cols=50, rows=4) }}<br>
+            {% for error in form.description.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    <h2>Task List</h2>
+    <ul class="task-list">
+        {% for task in tasks %}
+            <li class="{% if task.completed %}completed{% endif %}">
+                <h3>{{ task.title }}</h3>
+                <p>{{ task.description }}</p>
+                <small>Created: {{ task.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+                <div class="task-actions">
+                    {% if not task.completed %}
+                        <a href="{{ url_for('main.complete_task', task_id=task.id) }}" class="btn">Complete</a>
+                    {% endif %}
+                    <a href="{{ url_for('main.edit_task', task_id=task.id) }}" class="btn">Edit</a>
+                    <a href="{{ url_for('main.delete_task', task_id=task.id) }}" class="btn danger">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
