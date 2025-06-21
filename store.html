@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Воздушные шары - Магазин надувных шаров</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        .color-circle {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #ff5252;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Воздушные шары</h1>
+        <p>Яркие надувные шары для любого праздника!</p>
+    </header>
+
+    <div class="container">
+        <h2>Наши шары</h2>
+        
+        <div class="product-grid">
+            <!-- Красный шар -->
+            <div class="product-card">
+                <img src="https://images.tomas.by/i3/firms/49/28/28073/pic_cca53cbc09a0dda_1024x3000.webp.jpg" alt="Красный шар" class="product-image">
+                <h3>Красный шар</h3>
+                <p>Яркий классический красный шар</p>
+                <div class="color-circle" style="background-color: #ff0000;"></div>
+                <p>Цена: 99 ₽</p>
+                <button>Добавить в корзину</button>
+            </div>
+            
+            <!-- Синий шар -->
+            <div class="product-card">
+                <img src="https://cdn1.ozone.ru/s3/multimedia-1-h/6930754577.jpg
+                " alt="Синий шар" class="product-image">
+                <h3>Синий шар</h3>
+                <p>Элегантный синий шар</p>
+                <div class="color-circle" style="background-color: #0000ff;"></div>
+                <p>Цена: 99 ₽</p>
+                <button>Добавить в корзину</button>
+            </div>
+            
+            <!-- Желтый шар -->
+            <div class="product-card">
+                <img src="https://flowersgett.ru/upload/iblock/8af/8af45d195b2869606b9affa20c2e2071.jpg" alt="Желтый шар" class="product-image">
+                <h3>Желтый шар</h3>
+                <p>Солнечный желтый шар</p>
+                <div class="color-circle" style="background-color: #ffff00;"></div>
+                <p>Цена: 99 ₽</p>
+                <button>Добавить в корзину</button>
+            </div>
+            
+            <!-- Зеленый шар -->
+            <div class="product-card">
+                <img src="http://vse-prazdniki.by/image/cache/catalog/export/zelenyj-650x650.jpg" alt="Зеленый шар" class="product-image">
+                <h3>Зеленый шар</h3>
+                <p>Свежий зеленый шар</p>
+                <div class="color-circle" style="background-color: #00ff00;"></div>
+                <p>Цена: 99 ₽</p>
+                <button>Добавить в корзину</button>
+            </div>
+            
+            <!-- Розовый шар -->
+            <div class="product-card">
+                <img src="https://kopper-24.de/Bilder/Feiern%20-%20Event%20-%20Veranstaltung/Latex%20Luftballons/Standard/mit%20Glanz/Rosa.jpg" alt="Розовый шар" class="product-image">
+                <h3>Розовый шар</h3>
+                <p>Нежный розовый шар</p>
+                <div class="color-circle" style="background-color: #ff69b4;"></div>
+                <p>Цена: 99 ₽</p>
+                <button>Добавить в корзину</button>
+            </div>
+            
+            <!-- Фиолетовый шар -->
+            <div class="product-card">
+                <img src="https://media.baamboozle.com/uploads/images/740912/1677009415_125400_gif-url.jpeg" alt="Фиолетовый шар" class="product-image">
+                <h3>Фиолетовый шар</h3>
+                <p>Загадочный фиолетовый шар</p>
+                <div class="color-circle" style="background-color: #800080;"></div>
+                <p>Цена: 99 ₽</p>
+                <button>Добавить в корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Магазин "Воздушные шары", г. Сочи, Московская 10.</p>
+        <p>Телефон: +7 (123) 777-77-77</p>
+        <p>@bellesedman</p>
+    </footer>
+</body>
+</html>
